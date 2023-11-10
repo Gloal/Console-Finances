@@ -20,7 +20,7 @@ Your task is to write JavaScript code that analyzes the records to calculate eac
 
 * The average of the **changes** in Profit/Losses over the entire period.
   * You will need to track what the total change in Profit/Losses are from month to month and then find the average.
-  * (`Total/(Number of months - 1)`)
+  * (`Total change from month to month/(Number of months - 1)`)
 
 * The greatest increase in Profit/Losses (date and amount) over the entire period.
 

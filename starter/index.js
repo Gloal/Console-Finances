@@ -89,22 +89,56 @@ var finances = [
 
 var totalMonths = finances.length;
 var total = 0;
-var averageChange = 0;
-var greatestIncrease = 0
-var greatestIncreaseMonth
-var greatestDecrease = 0
-var greatestDecreaseMonth
+var averageMonthlyChange = 0;
+var totalMonthlyChange = 0;
+var greatestIncrease = 0;
+var greatestIncreaseMonth;
+var greatestDecrease = 0;
+var greatestDecreaseMonth;
 
 
+for(var i = 0; i<finances.length; i++){
+  var month = finances[i][0];
+  var amount = finances[i][1];
+  var monthlyChange = 0;
+
+  //calculate Total
+  total +=amount;
+
+
+  //average changes per month
+  if(i>=1){
+    monthlyChange = amount - finances[i-1][1];
+
+    //get highest change
+    if(monthlyChange > greatestIncrease){
+      greatestIncrease = monthlyChange
+      greatestIncreaseMonth = month;
+    }
+
+    //get lowest change
+    if(monthlyChange < greatestDecrease){
+      greatestDecrease = monthlyChange;
+      greatestDecreaseMonth = month;
+    }
+
+    totalMonthlyChange += monthlyChange;
+    console.log(totalMonthlyChange)
+
+
+  }
+
+}
+
+//calculate average monthly change = total changes/totalmonths+1
+averageMonthlyChange = Math.floor((totalMonthlyChange/(totalMonths-1)*100)/100);
+console.log(totalMonthlyChange)
 
 
 //print onto console
-/*
 console.log("Financial Analysis\n----------------"+
-                        "\nTotal Months:" + countMonths 86 +
-                        "\nTotal: $"+totalAmount 38382578 +
-                        "\nAverage Change: " averageChange-2315.12+
-                        "\nGreatest Increase in Profits/Losses: " + greatestIncreaseMonth Feb-2012 + " ($" + greatest increase amount 1926159+") "+
-                        "\nGreatest Decrease in Profits/Losses: "+Sep-2013+" ($"+-2196167+")");
-*/
-
+                        "\nTotal Months:" + totalMonths +
+                        "\nTotal: $" + total +
+                        "\nAverage Change: " + averageMonthlyChange +
+                        "\nGreatest Increase in Profits/Losses: " + greatestIncreaseMonth + " ($ " + greatestIncrease + ") "+
+                        "\nGreatest Decrease in Profits/Losses: "+greatestDecreaseMonth+" ($" +greatestDecrease +")");
