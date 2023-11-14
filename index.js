@@ -123,21 +123,17 @@ for(var i = 0; i<finances.length; i++){
     }
 
     totalMonthlyChange += monthlyChange;
-    console.log(totalMonthlyChange)
-
 
   }
-
 }
 
-//calculate average monthly change = total changes/totalmonths+1
-averageMonthlyChange = Math.floor((totalMonthlyChange/(totalMonths-1)*100)/100);
-console.log(totalMonthlyChange)
+//calculate average monthly change = total changes/totalmonths+1 - rounded up
+averageMonthlyChange = (totalMonthlyChange/(totalMonths-1)).toFixed(2);
 
 
 //print onto console
 console.log("Financial Analysis\n----------------"+
-                        "\nTotal Months:" + totalMonths +
+                        "\nTotal Months: " + totalMonths +
                         "\nTotal: $" + total +
                         "\nAverage Change: " + averageMonthlyChange +
                         "\nGreatest Increase in Profits/Losses: " + greatestIncreaseMonth + " ($ " + greatestIncrease + ") "+
